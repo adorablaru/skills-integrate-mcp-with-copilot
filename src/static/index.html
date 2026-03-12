@@ -8,9 +8,38 @@
   </head>
   <body>
     <header>
-      <h1>Mergington High School</h1>
-      <h2>Extracurricular Activities</h2>
+      <div class="header-content">
+        <div>
+          <h1>Mergington High School</h1>
+          <h2>Extracurricular Activities</h2>
+        </div>
+        <div class="auth-status">
+          <span id="session-label">Browsing as guest</span>
+          <button id="toggle-login" type="button">Staff Login</button>
+          <button id="logout-button" type="button" class="hidden">Logout</button>
+        </div>
+      </div>
     </header>
+
+    <section id="auth-panel" class="auth-panel hidden">
+      <h3>Teacher / Admin Access</h3>
+      <p>Only signed-in staff can remove students from an activity roster.</p>
+      <form id="login-form">
+        <div class="form-group">
+          <label for="username">Username:</label>
+          <input type="text" id="username" required placeholder="teacher1 or admin" />
+        </div>
+        <div class="form-group">
+          <label for="password">Password:</label>
+          <input type="password" id="password" required placeholder="Enter password" />
+        </div>
+        <button type="submit">Sign In</button>
+      </form>
+      <p class="auth-hint">
+        Demo accounts: <strong>teacher1 / teacher123</strong> or
+        <strong>admin / admin123</strong>
+      </p>
+    </section>
 
     <main>
       <section id="activities-container">

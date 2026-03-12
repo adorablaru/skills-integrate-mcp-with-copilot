@@ -6,6 +6,8 @@ A super simple FastAPI application that allows students to view and sign up for 
 
 - View all available extracurricular activities
 - Sign up for activities
+- Staff login for teachers and admins
+- Role-based protection for roster changes
 
 ## Getting Started
 
@@ -29,8 +31,12 @@ A super simple FastAPI application that allows students to view and sign up for 
 
 | Method | Endpoint                                                          | Description                                                         |
 | ------ | ----------------------------------------------------------------- | ------------------------------------------------------------------- |
+| POST   | `/auth/login`                                                     | Sign in as a teacher or admin                                       |
+| POST   | `/auth/logout`                                                    | End the current staff session                                       |
+| GET    | `/auth/session`                                                   | Check the active session and role                                   |
 | GET    | `/activities`                                                     | Get all activities with their details and current participant count |
 | POST   | `/activities/{activity_name}/signup?email=student@mergington.edu` | Sign up for an activity                                             |
+| DELETE | `/activities/{activity_name}/unregister?email=student@...`        | Remove a student from an activity (teacher/admin only)              |
 
 ## Data Model
 
@@ -48,3 +54,9 @@ The application uses a simple data model with meaningful identifiers:
    - Grade level
 
 All data is stored in memory, which means data will be reset when the server restarts.
+
+## Demo Staff Accounts
+
+- `teacher1` / `teacher123`
+- `teacher2` / `teacher123`
+- `admin` / `admin123`
